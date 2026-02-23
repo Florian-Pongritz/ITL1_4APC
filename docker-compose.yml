@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  ionic:
+    build: .
+    ports:
+      - "8100:8100"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    working_dir: /app
