@@ -2,7 +2,7 @@ FROM node:22
 
 WORKDIR /app
 
-RUN npm install -g @ionic/cli native-run cordova-res
+RUN npm install -g @ionic/cli cordova native-run cordova-res
 
 EXPOSE 8100
 
