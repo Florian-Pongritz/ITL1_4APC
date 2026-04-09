@@ -1,10 +1,49 @@
 version: '3.8'
 services:
-  ionic:
-    build: .
+  db:
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: NNJbUdgdfQarA5mFDMdJZbQv94nPp%
+      MYSQL_DATABASE: ITL1_development
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     ports:
       - "8100:8100"
+    environment:
+      NODE_ENV: development
+      JWT_SECRET: changeme_secret_key
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+
+  ionic:
+    build:
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - "8200:8200"
     volumes:
       - .:/app
       - /app/node_modules
     working_dir: /app
+    depends_on:
+      - backend
+
+volumes:
+  db_data:

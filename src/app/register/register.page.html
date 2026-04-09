@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="userForm" (ngSubmit)="registerUser()">
+
+  <ion-grid padding-top>
+    <ion-row>
+      <ion-col size="6">
+        <ion-item class="item-input">
+          <ion-label position="stacked" class="ion-padding-bottom" color="medium">FIRST NAME</ion-label>
+          <ion-input type="text" autofocus="true" formControlName="first_name"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="6">
+        <ion-item class="item-input">
+          <ion-label position="stacked" class="ion-padding-bottom" color="medium">LAST NAME</ion-label>
+          <ion-input type="text" formControlName="last_name"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-item class="item-input">
+          <ion-label position="stacked" padding-bottom color="medium">EMAIL</ion-label>
+          <ion-input type="email" inputmode="email" formControlName="email"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-item class="item-input">
+          <ion-label position="stacked" class="ion-padding-bottom" color="medium">Mobile</ion-label>
+          <ion-input type="tel" inputmode="tel" formControlName="phone"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-item class="item-input">
+          <ion-label position="stacked" class="ion-padding-bottom" color="medium">PASSWORD</ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-button expand="full" type="submit" [disabled]="disabled" class="submit-button">
+    Next
+    <span *ngIf="spinner">
+      <ion-spinner name="lines"></ion-spinner>
+    </span>
+  </ion-button>
+
+</form>
+</ion-content>

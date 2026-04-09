@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "NNJbUdgdfQarA5mFDMdJZbQv94nPp%",
+    "database": "ITL1_development",
+    "host": "db",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "NNJbUdgdfQarA5mFDMdJZbQv94nPp%",
+    "database": "ITL1_test",
+    "host": "db",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "NNJbUdgdfQarA5mFDMdJZbQv94nPp%",
+    "database": "ITL1_production",
+    "host": "db",
+    "dialect": "mysql"
+  }
+}

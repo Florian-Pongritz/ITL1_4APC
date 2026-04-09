@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid padding-top>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="stacked">EMAIL</ion-label>
+          <ion-input type="email" [(ngModel)]="user.email"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="stacked">PASSWORD</ion-label>
+          <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-button expand="full" (click)="login()" [disabled]="disabled" class="submit-button">
+    Log In
+    <span *ngIf="spinner">
+      <ion-spinner name="lines"></ion-spinner>
+    </span>
+  </ion-button>
+
+  <ion-button expand="full" fill="clear" routerLink="/register">
+    Don't have an account? Register
+  </ion-button>
+</ion-content>
